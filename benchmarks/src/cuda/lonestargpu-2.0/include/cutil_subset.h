@@ -20,6 +20,6 @@
 // from http://forums.nvidia.com/index.php?showtopic=186669
 static __device__ uint get_smid(void) {
      uint ret;
-     asm("mov.u32 %0, %smid;" : "=r"(ret) );
+     asm("mov.u32 %0, %%smid;" : "=r"(ret) );
      return ret;
 }

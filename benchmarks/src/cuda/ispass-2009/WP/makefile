@@ -69,6 +69,7 @@ DEBUGOUTPUT = -DDEBUG_I=$(DEBUG_I) -DDEBUG_J=$(DEBUG_J) -DDEBUG_K=$(DEBUG_K) $(F
 ########################  END OF SECTION YOU CAN CHANGE ################
 
 #NVCC   = nvcc -DCUDA
+CUDA_INSTALL_PATH=/usr/local/cuda-10.1
 NVCC    = $(CUDA_INSTALL_PATH)/bin/nvcc -DCUDA #--ptxas-options=-v
 PHASE   = -cuda --compiler-options -fno-strict-aliasing  
 NVOPT   = $(DEVICEEMU_NVCC) $(PROMOTE) $(DEBUGDEBUG) $(DEBUGOUTPUT) \
@@ -83,8 +84,9 @@ else
    # Compiler-specific flags (by default, we always use sm_10 and sm_20), unless we use the SMVERSION template
    GENCODE_SM10 := -gencode=arch=compute_10,code=\"sm_10,compute_10\"
    GENCODE_SM20 := -gencode=arch=compute_20,code=\"sm_20,compute_20\"
+   GENCODE_SM61 := -gencode=arch=compute_61,code=\"sm_61,compute_61\"
 endif
-PHASE  += $(GENCODE_SM10) $(GENCODE_SM20) 
+PHASE  += $(GENCODE_SM61) 
 
 
 ROOTBINDIR ?= bin
@@ -153,3 +155,18 @@ clean_imm :
 
 tar: 
 	tar cvf wsm5gpu_`date +"%Y%m%d"`.tar *.cu *.F *.h *.m4 *.pl makefile
+
+
+include /home/charitha/workspace/cuda-benchmarks/rodinia_3.1/cuda/cfanalyze.config
+
+KERNELS = wsm5_gpu.f wsm5.f
+EXTRA_CUFLAGS = -DCUDA -DDEBUG_I=59 -DDEBUG_J=45 -DDEBUG_K=1  -DXXX=8 -DYYY=8 -DMKX=28 
+
+cfanalyze : $(addsuffix .cu, $(KERNELS))
+	$(foreach KERNEL, $(KERNELS), $(CLANG) $(CLANG_FLAGS) $(EXTRA_CUFLAGS) $(LL_FLAGS) $(INCLUDES)  $(KERNEL).cu;)
+
+cfanalyze_pass : $(addsuffix .ll, $(KERNELS))
+	$(foreach KERNEL, $(KERNELS), $(OPT) $(CFANALYZE_FLAGS) < $(KERNEL)-$(LL_SUFFIX).ll > /dev/null ;)
+
+cfanalyze_clean :
+	rm -f *.ll

@@ -54,4 +54,4 @@ NEWCPP = $(OPENMPI_BINDIR)mpicxx
 ###############################################################################
 # Rules and targets
 
-include ../cuda_sdk_1.1/common/common.mk
+include ../../common/common.mk

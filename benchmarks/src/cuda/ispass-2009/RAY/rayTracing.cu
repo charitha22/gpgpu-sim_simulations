@@ -6,6 +6,9 @@
 #include <cstdio>
 #include <cstring>
 #include <cmath>
+#include <stdlib.h>
+#include <math.h>
+#include <algorithm>
 #include "makebmp.h"
 
 /*#include <GL/glew.h>
@@ -338,7 +341,7 @@ void initPixelBuffer()
     }*/
 
 	NUM = width * height;
-	phi = 2.0f/(float)min(width,height);
+	phi = 2.0f/(float)std::min(width,height);
 
     // create pixel buffer object for display
    /* glGenBuffersARB(1, &pbo);

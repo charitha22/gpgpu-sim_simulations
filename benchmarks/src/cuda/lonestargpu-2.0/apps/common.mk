@@ -17,10 +17,10 @@ GENCODE_SM60 ?= -gencode=arch=compute_60,code=\"sm_60,compute_60\"
 GENCODE_SM62 ?= -gencode=arch=compute_62,code=\"sm_62,compute_62\"
 
 ifdef debug
-FLAGS := $(GENCODE_SM10)  $(GENCODE_SM13) $(GENCODE_SM20) $(GENCODE_SM30) $(GENCODE_SM35) $(GENCODE_SM35)  $(GENCODE_SM50) $(GENCODE_SM60)  $(GENCODE_SM62) -g -DLSGDEBUG=1 -G
+FLAGS := $(GENCODE_SM30) $(GENCODE_SM35) $(GENCODE_SM35)  $(GENCODE_SM50) $(GENCODE_SM60)  $(GENCODE_SM62) -g -DLSGDEBUG=1 -G
 else
 # including -lineinfo -G causes launches to fail because of lack of resources, pity.
-FLAGS := -O3 $(GENCODE_SM10)  $(GENCODE_SM13) $(GENCODE_SM20) $(GENCODE_SM30) $(GENCODE_SM35) $(GENCODE_SM35)  $(GENCODE_SM50) $(GENCODE_SM60)  $(GENCODE_SM62) -g -Xptxas -v  #-lineinfo -G
+FLAGS := -O3 $(GENCODE_SM30) $(GENCODE_SM35) $(GENCODE_SM35)  $(GENCODE_SM50) $(GENCODE_SM60)  $(GENCODE_SM62) -g -Xptxas -v # -lineinfo -G
 endif
 INCLUDES := -I $(TOPLEVEL)/include -I $(CUB_DIR) -I $(NVIDIA_COMPUTE_SDK_LOCATION)/common/inc
 LINKS := 

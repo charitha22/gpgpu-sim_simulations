@@ -1,5 +1,5 @@
 # Location of the CUDA Toolkit
-CUDA_PATH ?= /usr/local/cuda-8.0
+CUDA_PATH ?= /usr/local/cuda-10.1
 #CUDNN_PATH ?= /usr/local/cudnn7
 
 # architecture
