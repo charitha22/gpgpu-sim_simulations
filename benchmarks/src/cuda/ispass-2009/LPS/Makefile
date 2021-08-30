@@ -1,43 +1,35 @@
-################################################################################
-#
-# Build script for project
-#
-################################################################################
+ROCM_HOME := /opt/rocm
+LLVM_HOME := /local/scratch/a/ksundar/llvm-project-rocm/build
+COMMAND_GEN_SCRIPT := $(LLVM_HOME)/../scripts/gen_compile_command.py
+# --------------------------------------------------------------------------------------------------
+SRC_DIR := src
+BUILD_DIR := tmp
+# --------------------------------------------------------------------------------------------------
+# Executable
+HIP_EXECUTABLE := laplace3d.hip
+CFM_EXECUTABLE := laplace3d.cfm
+# --------------------------------------------------------------------------------------------------
+# Compiler command
+HIPCC := $(ROCM_HOME)/bin/hipcc
+# Compiler flags
+HIPCC_FLAGS := -O3 
+# --------------------------------------------------------------------------------------------------
+all: $(HIP_EXECUTABLE) $(CFM_EXECUTABLE)
 
-# Add source files here
-EXECUTABLE	:= ispass-2009-LPS
-# CUDA source files (compiled with cudacc)
-CUFILES		:= laplace3d.cu
-# CUDA dependency files
-CU_DEPS		:= \
-	laplace3d_kernel.cu \
+init:
+	mkdir -p $(BUILD_DIR) 
 
-# C/C++ source files (compiled with gcc / c++)
-CCFILES		:= \
-	laplace3d_gold.cpp \
+clean:
+	rm -f $(HIP_EXECUTABLE) $(CFM_EXECUTABLE) 
 
-GPGPUSIM_ROOT  := ..
+$(HIP_EXECUTABLE): $(SRC_DIR)/laplace3d.hip.cpp init
+	$(HIPCC) -### $(HIPCC_FLAGS) $< -o $@ 2>&1 | python3 $(COMMAND_GEN_SCRIPT) --llvm-home=$(LLVM_HOME) --output-loc=./tmp \
+                    --ptx-opt-level=O0 --disable-pass > ./tmp/compile_command_$(notdir $@).sh
 
-INCLUDES= -I ../../common/inc
-LIBDIR=../../common/lib
-OMIT_CUTIL_LIB=0
+	. ./tmp/compile_command_$(notdir $@).sh
 
-################################################################################
-# Rules and targets
+$(CFM_EXECUTABLE): $(SRC_DIR)/laplace3d.hip.cpp init 
+	$(HIPCC) -### $(HIPCC_FLAGS) $< -o $@ 2>&1 | python3 $(COMMAND_GEN_SCRIPT) --llvm-home=$(LLVM_HOME) --output-loc=./tmp \
+            		--ptx-opt-level=O0 > ./tmp/compile_command_cfm_$(notdir $@).sh
 
-include ../../common/common.mk
-
-include /home/charitha/workspace/cuda-benchmarks/rodinia_3.1/cuda/cfanalyze.config
-
-KERNELS = laplace3d
-
-cfanalyze : $(addsuffix .cu, $(KERNELS))
-	$(foreach KERNEL, $(KERNELS), $(CLANG) $(CLANG_FLAGS) $(LL_FLAGS) $(INCLUDES)  $(KERNEL).cu;)
-
-cfanalyze_pass : $(addsuffix .ll, $(KERNELS))
-	$(foreach KERNEL, $(KERNELS), $(OPT) $(CFANALYZE_FLAGS) < $(KERNEL)-$(LL_SUFFIX).ll > /dev/null ;)
-
-cfanalyze_clean :
-	rm -f *.ll
-
-
+	. ./tmp/compile_command_cfm_$(notdir $@).sh
