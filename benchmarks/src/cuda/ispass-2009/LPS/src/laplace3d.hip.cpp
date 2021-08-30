@@ -14,7 +14,7 @@
 // define kernel block size
 ////////////////////////////////////////////////////////////////////////
 
-#define BLOCK_X 32
+#define BLOCK_X 64 
 #define BLOCK_Y 4
 
 ////////////////////////////////////////////////////////////////////////
@@ -187,9 +187,10 @@ inline int cutCheckCmdLineFlag(int argc, const char **argv, const char * flag){
 inline int cutGetCmdLineArgumenti(int argc, const char **argv, const char * opt, int * num){
 	if (argc < 2)
 		return 0;
-	for (int i = 0; i < argc; i++){
-		if (strcmp(argv[i]+2, opt) == 0){
-			*num = atoi(argv[i]+(3+strlen(opt)));
+  int l = strlen(opt);
+	for (int i = 1; i < argc; i++){
+		if (strncmp(argv[i]+2, opt, l) == 0){
+			*num = atoi(argv[i]+3+l); // --nx=<>
 			return 1;
 		}
 	}
@@ -214,7 +215,7 @@ int main(int argc, char **argv){
 
   // check command line inputs
 
-  if(cutCheckCmdLineFlag( argc, (const char**)argv, "help")) {
+  if( cutCheckCmdLineFlag( argc, (const char**)argv, "help") ) {
     printHelp();
     return 1;
   }
@@ -402,7 +403,7 @@ int main(int argc, char **argv){
   hipEventRecord(stop);
   hipEventSynchronize(stop);
   hipEventElapsedTime(&eTime, start, stop);
-  printf("\n%dx Gold_laplace3d: %f (ms) \n \n", REPEAT, eTime);
+  printf("\n%dx Gold_laplace3d: %f (ms) \n", REPEAT, eTime);
 
   // print out corner of array
 
@@ -435,16 +436,16 @@ int main(int argc, char **argv){
   printf("\nrms error = %f \n",sqrt(err/ (float)(NX*NY*NZ)));
 
  // Release GPU and CPU memory
-  printf("Free(d_u1)\n"); fflush(stdout);
-  hipFree(d_u1);
-  printf("Free(d_u2)\n"); fflush(stdout);
-  hipFree(d_u2);
-  printf("free(h_u1);\n"); fflush(stdout);
-  free(h_u1);
-  printf("free(h_u2);\n"); fflush(stdout);
-  free(h_u2);
-  printf("free(h_u3);\n"); fflush(stdout);
-  free(h_u3);
+  // printf("Free(d_u1)\n"); 
+  fflush(stdout); hipFree(d_u1);
+  // printf("Free(d_u2)\n"); 
+  fflush(stdout); hipFree(d_u2);
+  // printf("free(h_u1);\n"); 
+  fflush(stdout); free(h_u1);
+  // printf("free(h_u2);\n"); 
+  fflush(stdout); free(h_u2);
+  // printf("free(h_u3);\n"); 
+  fflush(stdout); free(h_u3);
 
   //CUT_SAFE_CALL( cutDeleteTimer(hTimer) );
   //CUT_EXIT(argc, argv);
