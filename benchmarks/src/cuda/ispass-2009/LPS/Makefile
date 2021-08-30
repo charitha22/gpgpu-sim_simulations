@@ -20,7 +20,8 @@ init:
 	mkdir -p $(BUILD_DIR) 
 
 clean:
-	rm -f $(HIP_EXECUTABLE) $(CFM_EXECUTABLE) 
+	rm -f $(HIP_EXECUTABLE) $(CFM_EXECUTABLE)
+	rm -f .*.dot
 
 $(HIP_EXECUTABLE): $(SRC_DIR)/laplace3d.hip.cpp init
 	$(HIPCC) -### $(HIPCC_FLAGS) $< -o $@ 2>&1 | python3 $(COMMAND_GEN_SCRIPT) --llvm-home=$(LLVM_HOME) --output-loc=./tmp \
