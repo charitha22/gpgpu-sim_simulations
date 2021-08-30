@@ -8,19 +8,20 @@ BUILD_DIR := tmp
 # Executable
 HIP_EXECUTABLE := laplace3d.hip
 CFM_EXECUTABLE := laplace3d.cfm
+BF_EXECUTABLE  := laplace3d.bf
 # --------------------------------------------------------------------------------------------------
 # Compiler command
 HIPCC := $(ROCM_HOME)/bin/hipcc
 # Compiler flags
 HIPCC_FLAGS := -O3 
 # --------------------------------------------------------------------------------------------------
-all: $(HIP_EXECUTABLE) $(CFM_EXECUTABLE)
+all: $(HIP_EXECUTABLE) $(CFM_EXECUTABLE) $(BF_EXECUTABLE)
 
 init:
 	mkdir -p $(BUILD_DIR) 
 
 clean:
-	rm -f $(HIP_EXECUTABLE) $(CFM_EXECUTABLE)
+	rm -f $(HIP_EXECUTABLE) $(CFM_EXECUTABLE) $(BF_EXECUTABLE)
 	rm -f .*.dot
 
 $(HIP_EXECUTABLE): $(SRC_DIR)/laplace3d.hip.cpp init
@@ -34,3 +35,9 @@ $(CFM_EXECUTABLE): $(SRC_DIR)/laplace3d.hip.cpp init
             		--ptx-opt-level=O0 > ./tmp/compile_command_cfm_$(notdir $@).sh
 
 	. ./tmp/compile_command_cfm_$(notdir $@).sh
+
+$(BF_EXECUTABLE): $(SRC_DIR)/laplace3d.hip.cpp init 
+	$(HIPCC) -### $(HIPCC_FLAGS) $< -o $@ 2>&1 | python3 $(COMMAND_GEN_SCRIPT) --llvm-home=$(LLVM_HOME) --output-loc=./tmp \
+            		--ptx-opt-level=O0 --cfmelder-options=--run-cfmelding-once > ./tmp/compile_command_bf_$(notdir $@).sh
+
+	. ./tmp/compile_command_bf_$(notdir $@).sh
