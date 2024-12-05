@@ -1,0 +1,27 @@
+digraph "CFG for '__ockl_hsa_signal_add' function" {
+	label="CFG for '__ockl_hsa_signal_add' function";
+
+	Node0x563aa6b8f410 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = inttoptr i64 %0 to %4 addrspace(1)*\l  %5 = getelementptr inbounds %4, %4 addrspace(1)* %4, i64 0, i32 1, i32 0\l  switch i32 %2, label %6 [\l    i32 1, label %8\l    i32 2, label %8\l    i32 3, label %10\l    i32 4, label %12\l    i32 5, label %14\l  ]\l|{<s0>def|<s1>1|<s2>2|<s3>3|<s4>4|<s5>5}}"];
+	Node0x563aa6b8f410:s0 -> Node0x563aa6b8f520;
+	Node0x563aa6b8f410:s1 -> Node0x563aa6b8f570;
+	Node0x563aa6b8f410:s2 -> Node0x563aa6b8f570;
+	Node0x563aa6b8f410:s3 -> Node0x563aa6b8f5c0;
+	Node0x563aa6b8f410:s4 -> Node0x563aa6b8f610;
+	Node0x563aa6b8f410:s5 -> Node0x563aa6b8f660;
+	Node0x563aa6b8f520 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%6:\l6:                                                \l  %7 = atomicrmw add i64 addrspace(1)* %5, i64 %1 syncscope(\"one-as\") monotonic\l  br label %16\l}"];
+	Node0x563aa6b8f520 -> Node0x563aa6b8f920;
+	Node0x563aa6b8f570 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7a88970",label="{%8:\l8:                                                \l  %9 = atomicrmw add i64 addrspace(1)* %5, i64 %1 syncscope(\"one-as\") acquire\l  br label %16\l}"];
+	Node0x563aa6b8f570 -> Node0x563aa6b8f920;
+	Node0x563aa6b8f5c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%10:\l10:                                               \l  %11 = atomicrmw add i64 addrspace(1)* %5, i64 %1 syncscope(\"one-as\") release\l  br label %16\l}"];
+	Node0x563aa6b8f5c0 -> Node0x563aa6b8f920;
+	Node0x563aa6b8f610 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%12:\l12:                                               \l  %13 = atomicrmw add i64 addrspace(1)* %5, i64 %1 syncscope(\"one-as\") acq_rel\l  br label %16\l}"];
+	Node0x563aa6b8f610 -> Node0x563aa6b8f920;
+	Node0x563aa6b8f660 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%14:\l14:                                               \l  %15 = atomicrmw add i64 addrspace(1)* %5, i64 %1 seq_cst\l  br label %16\l}"];
+	Node0x563aa6b8f660 -> Node0x563aa6b8f920;
+	Node0x563aa6b8f920 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%16:\l16:                                               \l  %17 = getelementptr inbounds %4, %4 addrspace(1)* %4, i64 0, i32 2\l  %18 = load i64, i64 addrspace(1)* %17, align 16, !tbaa !4\l  %19 = icmp eq i64 %18, 0\l  br i1 %19, label %27, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x563aa6b8f920:s0 -> Node0x563aa6b8f4d0;
+	Node0x563aa6b8f920:s1 -> Node0x563aa6b90020;
+	Node0x563aa6b90020 [shape=record,color="#b70d28ff", style=filled, fillcolor="#de614d70",label="{%20:\l20:                                               \l  %21 = inttoptr i64 %18 to i64 addrspace(1)*\l  %22 = getelementptr inbounds %4, %4 addrspace(1)* %4, i64 0, i32 3\l  %23 = load i32, i32 addrspace(1)* %22, align 8, !tbaa !10\l  %24 = zext i32 %23 to i64\l  store atomic i64 %24, i64 addrspace(1)* %21 syncscope(\"one-as\") release,\l... align 8\l  %25 = tail call i32 @llvm.amdgcn.readfirstlane(i32 %23) #16\l  %26 = and i32 %25, 255\l  tail call void @llvm.amdgcn.s.sendmsg(i32 1, i32 %26) #16\l  br label %27\l}"];
+	Node0x563aa6b90020 -> Node0x563aa6b8f4d0;
+	Node0x563aa6b8f4d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%27:\l27:                                               \l  ret void\l}"];
+}

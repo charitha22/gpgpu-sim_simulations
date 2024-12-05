@@ -1,0 +1,5 @@
+digraph "CFG for '__ockl_mul24_i32' function" {
+	label="CFG for '__ockl_mul24_i32' function";
+
+	Node0x563aa6b7c290 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = shl i32 %0, 8\l  %4 = ashr exact i32 %3, 8\l  %5 = shl i32 %1, 8\l  %6 = ashr exact i32 %5, 8\l  %7 = mul nsw i32 %6, %4\l  ret i32 %7\l}"];
+}

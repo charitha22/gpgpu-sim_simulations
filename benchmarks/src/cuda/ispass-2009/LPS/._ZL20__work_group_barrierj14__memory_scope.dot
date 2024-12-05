@@ -1,0 +1,5 @@
+digraph "CFG for '_ZL20__work_group_barrierj14__memory_scope' function" {
+	label="CFG for '_ZL20__work_group_barrierj14__memory_scope' function";
+
+	Node0x5563af2fb070 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  fence syncscope(\"workgroup\") release\l  tail call void @llvm.amdgcn.s.barrier()\l  fence syncscope(\"workgroup\") acquire\l  ret void\l}"];
+}

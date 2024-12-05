@@ -1,0 +1,5 @@
+digraph "CFG for '__assertfail' function" {
+	label="CFG for '__assertfail' function";
+
+	Node0x5563af2e20a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l  tail call void @llvm.trap()\l  unreachable\l}"];
+}

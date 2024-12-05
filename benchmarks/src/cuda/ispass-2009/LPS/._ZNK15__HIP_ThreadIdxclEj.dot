@@ -1,0 +1,16 @@
+digraph "CFG for '_ZNK15__HIP_ThreadIdxclEj' function" {
+	label="CFG for '_ZNK15__HIP_ThreadIdxclEj' function";
+
+	Node0x5563af2fb500 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  switch i32 %1, label %__ockl_get_local_id.exit [\l    i32 0, label %3\l    i32 1, label %5\l    i32 2, label %7\l  ]\l|{<s0>def|<s1>0|<s2>1|<s3>2}}"];
+	Node0x5563af2fb500:s0 -> Node0x5563af2fb550;
+	Node0x5563af2fb500:s1 -> Node0x5563af2fb680;
+	Node0x5563af2fb500:s2 -> Node0x5563af2fb6d0;
+	Node0x5563af2fb500:s3 -> Node0x5563af2fb720;
+	Node0x5563af2fb680 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ecd3c570",label="{%3:\l3:                                                \l  %4 = tail call i32 @llvm.amdgcn.workitem.id.x() #20, !range !4\l  br label %__ockl_get_local_id.exit\l}"];
+	Node0x5563af2fb680 -> Node0x5563af2fb550;
+	Node0x5563af2fb6d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%5:\l5:                                                \l  %6 = tail call i32 @llvm.amdgcn.workitem.id.y() #20, !range !4\l  br label %__ockl_get_local_id.exit\l}"];
+	Node0x5563af2fb6d0 -> Node0x5563af2fb550;
+	Node0x5563af2fb720 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%7:\l7:                                                \l  %8 = tail call i32 @llvm.amdgcn.workitem.id.z() #20, !range !4\l  br label %__ockl_get_local_id.exit\l}"];
+	Node0x5563af2fb720 -> Node0x5563af2fb550;
+	Node0x5563af2fb550 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{__ockl_get_local_id.exit:                         \l  %9 = phi i32 [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ 0, %2 ]\l  ret i32 %9\l}"];
+}

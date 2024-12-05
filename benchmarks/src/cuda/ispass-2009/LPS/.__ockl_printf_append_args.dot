@@ -1,0 +1,5 @@
+digraph "CFG for '__ockl_printf_append_args' function" {
+	label="CFG for '__ockl_printf_append_args' function";
+
+	Node0x563aa6b90c70 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%10:\l  %11 = icmp eq i32 %9, 0\l  %12 = or i64 %0, 2\l  %13 = select i1 %11, i64 %0, i64 %12\l  %14 = and i64 %13, -225\l  %15 = zext i32 %1 to i64\l  %16 = shl nuw nsw i64 %15, 5\l  %17 = or i64 %14, %16\l  %18 = tail call \<2 x i64\> @__ockl_hostcall_preview(i32 2, i64 %17, i64 %2,\l... i64 %3, i64 %4, i64 %5, i64 %6, i64 %7, i64 %8) #19\l  %19 = extractelement \<2 x i64\> %18, i64 0\l  ret i64 %19\l}"];
+}

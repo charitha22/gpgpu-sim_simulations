@@ -1,0 +1,477 @@
+INFO   : Function name : _Z24solve_nqueen_cuda_kerneliiPjS_S_S_i
+INFO   : Valid merge location found at BB %34
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %42 : %76 ]
+DEBUG  : BB to region merge detected for basic blocks %40 ,%74, similarity score 5.000000e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%42 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %42
+INFO   : Melding exit blocks %replicated.bb2 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %merged.bb15 : %merged.bb14 ]
+DEBUG  : BB to region merge detected for basic blocks %merged.bb18 ,%merged.bb16, similarity score 3.809524e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%merged.bb15 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %merged.bb15
+INFO   : Melding exit blocks %replicated.bb22 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : 
+DEBUG  : Basic blocks %merged.bb33, %merged.bb32 can be melded, similarity score 3.785489e-03
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  2 cfmelder - Number of profitable basic block to region meldings
+ 30 cfmelder - Time spent in instruction alignment in microseconds
+  2 cfmelder - Number of profitable meldings performed
+145 region   - The # of regions
+ 11 region   - The # of simple regions
+
+
+real	0m0.478s
+user	0m0.405s
+sys	0m0.042s
+INFO   : Function name : _Z24solve_nqueen_cuda_kerneliiPjS_S_S_i
+INFO   : Valid merge location found at BB %34
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %42 : %76 ]
+DEBUG  : BB to region merge detected for basic blocks %40 ,%74, similarity score 5.000000e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%42 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %42
+INFO   : Melding exit blocks %replicated.bb2 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %merged.bb14 : %merged.bb17 ]
+DEBUG  : BB to region merge detected for basic blocks %merged.bb15 ,%merged.bb18, similarity score 3.809524e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%merged.bb14 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %merged.bb14
+INFO   : Melding exit blocks %replicated.bb22 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : 
+DEBUG  : Basic blocks %merged.bb33, %merged.bb34 can be melded, similarity score 3.785489e-03
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  2 cfmelder - Number of profitable basic block to region meldings
+ 31 cfmelder - Time spent in instruction alignment in microseconds
+  2 cfmelder - Number of profitable meldings performed
+145 region   - The # of regions
+ 11 region   - The # of simple regions
+
+
+real	0m0.479s
+user	0m0.414s
+sys	0m0.036s
+INFO   : Function name : _Z24solve_nqueen_cuda_kerneliiPjS_S_S_i
+INFO   : Valid merge location found at BB %34
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %42 : %76 ]
+DEBUG  : BB to region merge detected for basic blocks %40 ,%74, similarity score 5.000000e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%42 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %42
+INFO   : Melding exit blocks %replicated.bb2 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %merged.bb14 : %merged.bb18 ]
+DEBUG  : BB to region merge detected for basic blocks %merged.bb ,%merged.bb16, similarity score 3.809524e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%merged.bb14 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %merged.bb14
+INFO   : Melding exit blocks %replicated.bb22 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : 
+DEBUG  : Basic blocks %merged.bb33, %merged.bb34 can be melded, similarity score 3.785489e-03
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  2 cfmelder - Number of profitable basic block to region meldings
+ 31 cfmelder - Time spent in instruction alignment in microseconds
+  2 cfmelder - Number of profitable meldings performed
+145 region   - The # of regions
+ 11 region   - The # of simple regions
+
+
+real	0m0.465s
+user	0m0.383s
+sys	0m0.054s
+INFO   : Function name : _Z24solve_nqueen_cuda_kerneliiPjS_S_S_i
+INFO   : Valid merge location found at BB %34
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %42 : %76 ]
+DEBUG  : BB to region merge detected for basic blocks %40 ,%74, similarity score 5.000000e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%42 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %42
+INFO   : Melding exit blocks %replicated.bb2 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %merged.bb14 : %merged.bb18 ]
+DEBUG  : BB to region merge detected for basic blocks %merged.bb ,%merged.bb16, similarity score 3.809524e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%merged.bb14 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %merged.bb14
+INFO   : Melding exit blocks %replicated.bb22 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : 
+DEBUG  : Basic blocks %merged.bb33, %merged.bb34 can be melded, similarity score 3.785489e-03
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  2 cfmelder - Number of profitable basic block to region meldings
+ 32 cfmelder - Time spent in instruction alignment in microseconds
+  2 cfmelder - Number of profitable meldings performed
+145 region   - The # of regions
+ 11 region   - The # of simple regions
+
+
+real	0m0.471s
+user	0m0.410s
+sys	0m0.033s
+INFO   : Function name : _Z24solve_nqueen_cuda_kerneliiPjS_S_S_i
+INFO   : Valid merge location found at BB %34
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %42 : %76 ]
+DEBUG  : BB to region merge detected for basic blocks %40 ,%74, similarity score 5.000000e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%42 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %42
+INFO   : Melding exit blocks %replicated.bb2 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %merged.bb18 : %merged.bb17 ]
+DEBUG  : BB to region merge detected for basic blocks %merged.bb ,%merged.bb15, similarity score 3.809524e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%merged.bb18 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %merged.bb18
+INFO   : Melding exit blocks %replicated.bb22 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : 
+DEBUG  : Basic blocks %merged.bb34, %merged.bb32 can be melded, similarity score 3.785489e-03
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  2 cfmelder - Number of profitable basic block to region meldings
+ 32 cfmelder - Time spent in instruction alignment in microseconds
+  2 cfmelder - Number of profitable meldings performed
+145 region   - The # of regions
+ 11 region   - The # of simple regions
+
+
+real	0m0.467s
+user	0m0.406s
+sys	0m0.035s
+INFO   : Function name : _Z24solve_nqueen_cuda_kerneliiPjS_S_S_i
+INFO   : Valid merge location found at BB %34
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %42 : %76 ]
+DEBUG  : BB to region merge detected for basic blocks %40 ,%74, similarity score 5.000000e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%42 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %42
+INFO   : Melding exit blocks %replicated.bb2 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %merged.bb16 : %merged.bb ]
+DEBUG  : BB to region merge detected for basic blocks %merged.bb14 ,%merged.bb18, similarity score 3.809524e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%merged.bb16 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %merged.bb16
+INFO   : Melding exit blocks %replicated.bb22 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : 
+DEBUG  : Basic blocks %merged.bb33, %merged.bb32 can be melded, similarity score 3.785489e-03
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  2 cfmelder - Number of profitable basic block to region meldings
+ 31 cfmelder - Time spent in instruction alignment in microseconds
+  2 cfmelder - Number of profitable meldings performed
+145 region   - The # of regions
+ 11 region   - The # of simple regions
+
+
+real	0m0.484s
+user	0m0.410s
+sys	0m0.047s
+INFO   : Function name : _Z24solve_nqueen_cuda_kerneliiPjS_S_S_i
+INFO   : Valid merge location found at BB %34
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %42 : %76 ]
+DEBUG  : BB to region merge detected for basic blocks %40 ,%74, similarity score 5.000000e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%42 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %42
+INFO   : Melding exit blocks %replicated.bb2 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %merged.bb14 : %merged.bb18 ]
+DEBUG  : BB to region merge detected for basic blocks %merged.bb ,%merged.bb16, similarity score 3.809524e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%merged.bb14 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %merged.bb14
+INFO   : Melding exit blocks %replicated.bb22 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : 
+DEBUG  : Basic blocks %merged.bb33, %merged.bb34 can be melded, similarity score 3.785489e-03
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  2 cfmelder - Number of profitable basic block to region meldings
+ 31 cfmelder - Time spent in instruction alignment in microseconds
+  2 cfmelder - Number of profitable meldings performed
+145 region   - The # of regions
+ 11 region   - The # of simple regions
+
+
+real	0m0.476s
+user	0m0.412s
+sys	0m0.035s
+INFO   : Function name : _Z24solve_nqueen_cuda_kerneliiPjS_S_S_i
+INFO   : Valid merge location found at BB %34
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %42 : %76 ]
+DEBUG  : BB to region merge detected for basic blocks %40 ,%74, similarity score 5.000000e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%42 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %42
+INFO   : Melding exit blocks %replicated.bb2 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %merged.bb16 : %merged.bb ]
+DEBUG  : BB to region merge detected for basic blocks %merged.bb14 ,%merged.bb18, similarity score 3.809524e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%merged.bb16 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %merged.bb16
+INFO   : Melding exit blocks %replicated.bb22 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : 
+DEBUG  : Basic blocks %merged.bb33, %merged.bb32 can be melded, similarity score 3.785489e-03
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  2 cfmelder - Number of profitable basic block to region meldings
+ 31 cfmelder - Time spent in instruction alignment in microseconds
+  2 cfmelder - Number of profitable meldings performed
+145 region   - The # of regions
+ 11 region   - The # of simple regions
+
+
+real	0m0.471s
+user	0m0.389s
+sys	0m0.054s
+INFO   : Function name : _Z24solve_nqueen_cuda_kerneliiPjS_S_S_i
+INFO   : Valid merge location found at BB %34
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %42 : %76 ]
+DEBUG  : BB to region merge detected for basic blocks %40 ,%74, similarity score 5.000000e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%42 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %42
+INFO   : Melding exit blocks %replicated.bb2 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : [ %merged.bb18 : %merged.bb17 ]
+DEBUG  : BB to region merge detected for basic blocks %merged.bb ,%merged.bb15, similarity score 3.809524e-01
+INFO   : Melding is profitable
+INFO   : Replicating regions in BB-region match
+DEBUG  : Replicating right region
+INFO   : Replicated region is not a simple region, running region simplification
+INFO   : region after region simplification : [%merged.bb18 : %new.exit]
+INFO   : Melding entry blocks %replicated.bb , %merged.bb18
+INFO   : Melding exit blocks %replicated.bb22 , %new.exit
+INFO   : Cloning instructions
+INFO   : Fixing operends
+INFO   : Running post-merge optimizations
+DEBUG  : Converting conditional branch to unconditional
+DEBUG  : Converting conditional branch to unconditional
+INFO   : Running CFG simplification
+INFO   : Valid merge location found at BB %unify.bb
+DEBUG  : Left regions : 
+DEBUG  : Right regions : 
+DEBUG  : Basic blocks %merged.bb31, %merged.bb34 can be melded, similarity score 3.785489e-03
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  2 cfmelder - Number of profitable basic block to region meldings
+ 31 cfmelder - Time spent in instruction alignment in microseconds
+  2 cfmelder - Number of profitable meldings performed
+145 region   - The # of regions
+ 11 region   - The # of simple regions
+
+
+real	0m0.473s
+user	0m0.416s
+sys	0m0.030s

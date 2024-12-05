@@ -1,0 +1,5 @@
+digraph "CFG for '__ockl_printf_begin' function" {
+	label="CFG for '__ockl_printf_begin' function";
+
+	Node0x563aa6b7c610 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = tail call \<2 x i64\> @__ockl_hostcall_preview(i32 2, i64 33, i64 0, i64\l... 0, i64 0, i64 0, i64 0, i64 0, i64 0) #19\l  %3 = extractelement \<2 x i64\> %2, i64 0\l  ret i64 %3\l}"];
+}

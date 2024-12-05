@@ -1,0 +1,16 @@
+digraph "CFG for '__ockl_get_local_id' function" {
+	label="CFG for '__ockl_get_local_id' function";
+
+	Node0x563aa6b9cbb0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  switch i32 %0, label %8 [\l    i32 0, label %2\l    i32 1, label %4\l    i32 2, label %6\l  ]\l|{<s0>def|<s1>0|<s2>1|<s3>2}}"];
+	Node0x563aa6b9cbb0:s0 -> Node0x563aa6b9cc00;
+	Node0x563aa6b9cbb0:s1 -> Node0x563aa6b9cc50;
+	Node0x563aa6b9cbb0:s2 -> Node0x563aa6b9cca0;
+	Node0x563aa6b9cbb0:s3 -> Node0x563aa6b9ccf0;
+	Node0x563aa6b9cc50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ecd3c570",label="{%2:\l2:                                                \l  %3 = tail call i32 @llvm.amdgcn.workitem.id.x(), !range !4\l  br label %8\l}"];
+	Node0x563aa6b9cc50 -> Node0x563aa6b9cc00;
+	Node0x563aa6b9cca0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%4:\l4:                                                \l  %5 = tail call i32 @llvm.amdgcn.workitem.id.y(), !range !4\l  br label %8\l}"];
+	Node0x563aa6b9cca0 -> Node0x563aa6b9cc00;
+	Node0x563aa6b9ccf0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%6:\l6:                                                \l  %7 = tail call i32 @llvm.amdgcn.workitem.id.z(), !range !4\l  br label %8\l}"];
+	Node0x563aa6b9ccf0 -> Node0x563aa6b9cc00;
+	Node0x563aa6b9cc00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%8:\l8:                                                \l  %9 = phi i32 [ %7, %6 ], [ %5, %4 ], [ %3, %2 ], [ 0, %1 ]\l  %10 = zext i32 %9 to i64\l  ret i64 %10\l}"];
+}

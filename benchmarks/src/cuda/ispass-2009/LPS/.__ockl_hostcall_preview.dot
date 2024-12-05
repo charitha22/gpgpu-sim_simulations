@@ -1,0 +1,5 @@
+digraph "CFG for '__ockl_hostcall_preview' function" {
+	label="CFG for '__ockl_hostcall_preview' function";
+
+	Node0x563aa6b7d0e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%9:\l  %10 = tail call i8 addrspace(4)* @llvm.amdgcn.implicitarg.ptr()\l  %11 = getelementptr inbounds i8, i8 addrspace(4)* %10, i64 24\l  %12 = bitcast i8 addrspace(4)* %11 to i64 addrspace(4)*\l  %13 = load i64, i64 addrspace(4)* %12, align 8, !tbaa !4\l  %14 = inttoptr i64 %13 to i8*\l  %15 = tail call \<2 x i64\> @__ockl_hostcall_internal(i8* %14, i32 %0, i64 %1,\l... i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7, i64 %8) #19\l  ret \<2 x i64\> %15\l}"];
+}

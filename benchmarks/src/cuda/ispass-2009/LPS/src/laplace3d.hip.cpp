@@ -14,7 +14,7 @@
 // define kernel block size
 ////////////////////////////////////////////////////////////////////////
 
-#define BLOCK_X 64 
+#define BLOCK_X 32 
 #define BLOCK_Y 4
 
 ////////////////////////////////////////////////////////////////////////
@@ -128,8 +128,23 @@ __global__ void GPU_laplace3d(int NX, int NY, int NZ, int pitch,
   //
 
     if (active) {
-      if (i==0 || i==NXM1 || j==0 || j==NYM1 || k==0 || k==NZM1) {
+      if (i==0) {
         u2 = u1[ind];          // Dirichlet b.c.'s
+      }
+      else if (i==NXM1) {
+        u2 = u1[ind];     
+      }
+      else if (j==0) {
+        u2 = u1[ind]; 
+      }
+      else if (j==NYM1 ) {
+        u2 = u1[ind]; 
+      }
+      else if (k==0 ) {
+        u2 = u1[ind]; 
+      }
+      else if (k==NZM1) {
+        u2 = u1[ind]; 
       }
       else {
         u2 = ( u1[ind-IOFF] + u1[ind+IOFF]

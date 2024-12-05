@@ -1,0 +1,5 @@
+digraph "CFG for '_ZNK17__HIP_CoordinatesI15__HIP_ThreadIdxE1YcvjEv' function" {
+	label="CFG for '_ZNK17__HIP_CoordinatesI15__HIP_ThreadIdxE1YcvjEv' function";
+
+	Node0x5563af2f61c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = alloca %struct.__HIP_ThreadIdx, align 1, addrspace(5)\l  %3 = addrspacecast %struct.__HIP_ThreadIdx addrspace(5)* %2 to\l... %struct.__HIP_ThreadIdx*\l  %4 = call i32 @_ZNK15__HIP_ThreadIdxclEj(%struct.__HIP_ThreadIdx* nonnull\l... dereferenceable(1) %3, i32 1) #20\l  ret i32 %4\l}"];
+}

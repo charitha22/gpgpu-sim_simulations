@@ -1,0 +1,5 @@
+digraph "CFG for '_ZL7__mul24ii' function" {
+	label="CFG for '_ZL7__mul24ii' function";
+
+	Node0x5563af2f9f60 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = shl i32 %0, 8\l  %4 = ashr exact i32 %3, 8\l  %5 = shl i32 %1, 8\l  %6 = ashr exact i32 %5, 8\l  %7 = mul nsw i32 %6, %4\l  ret i32 %7\l}"];
+}

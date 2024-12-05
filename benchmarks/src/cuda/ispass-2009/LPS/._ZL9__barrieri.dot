@@ -1,0 +1,5 @@
+digraph "CFG for '_ZL9__barrieri' function" {
+	label="CFG for '_ZL9__barrieri' function";
+
+	Node0x5563af2fad90 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  tail call fastcc void @_ZL20__work_group_barrierj14__memory_scope() #23\l  ret void\l}"];
+}

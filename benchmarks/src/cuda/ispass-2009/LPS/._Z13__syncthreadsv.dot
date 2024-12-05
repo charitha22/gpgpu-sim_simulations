@@ -1,0 +1,5 @@
+digraph "CFG for '_Z13__syncthreadsv' function" {
+	label="CFG for '_Z13__syncthreadsv' function";
+
+	Node0x5563af2fab20 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  tail call fastcc void @_ZL9__barrieri() #23\l  ret void\l}"];
+}

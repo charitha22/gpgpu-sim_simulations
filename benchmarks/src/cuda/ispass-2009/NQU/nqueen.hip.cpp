@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <cutil.h>
 
-#define THREAD_NUM		96
+#define THREAD_NUM	64
 
 
 int bunk = 0;		// this is a dummy variable used for making sure clock() are not optimized out
@@ -397,6 +397,7 @@ __global__ void solve_nqueen_cuda_kernel(int n, int mark, unsigned int* total_ma
 
 long long solve_nqueen_cuda(int n, int steps)
 {
+  double total_time = 0;
 	// generating start conditions
 	unsigned int mask[32];
 	unsigned int l_mask[32];
@@ -475,12 +476,23 @@ long long solve_nqueen_cuda(int n, int steps)
 								computed = false;
 							}
 
+							hipEvent_t start, stop;
+							hipEventCreate(&start);
+							hipEventCreate(&stop);
+
 							// start computation
 							hipMemcpy(masks_cuda, total_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
 							hipMemcpy(l_masks_cuda, total_l_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
 							hipMemcpy(r_masks_cuda, total_r_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
 
+							hipEventRecord(start);
 							hipLaunchKernelGGL(solve_nqueen_cuda_kernel, dim3(steps/THREAD_NUM), dim3(THREAD_NUM), 0, 0, n, n - mark, masks_cuda, l_masks_cuda, r_masks_cuda, results_cuda, total_conditions);
+							hipEventRecord(stop);
+
+							hipEventSynchronize(stop);
+  						float milis = 0.f;
+  						hipEventElapsedTime(&milis, start, stop);
+							total_time+=milis;
 
 							computed = true;
 
@@ -495,8 +507,6 @@ long long solve_nqueen_cuda(int n, int steps)
 			}
 		}
 	}
-	
-
 	if(computed) {
 		hipMemcpy(results, results_cuda, sizeof(int) * steps / THREAD_NUM, hipMemcpyDeviceToHost);
 
@@ -511,8 +521,17 @@ long long solve_nqueen_cuda(int n, int steps)
 	hipMemcpy(l_masks_cuda, total_l_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
 	hipMemcpy(r_masks_cuda, total_r_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
 
+	hipEvent_t start1, stop1;
+	hipEventCreate(&start1);
+	hipEventCreate(&stop1);
+	hipEventRecord(start1);
 	hipLaunchKernelGGL(solve_nqueen_cuda_kernel, dim3(steps/THREAD_NUM), dim3(THREAD_NUM), 0, 0, n, n - mark, masks_cuda, l_masks_cuda, r_masks_cuda, results_cuda, total_conditions);
+	hipEventRecord(stop1);
 
+	hipEventSynchronize(stop1);
+	float milis1 = 0.f;
+	hipEventElapsedTime(&milis1, start1, stop1);
+	total_time+=milis1;
 	hipMemcpy(results, results_cuda, sizeof(int) * steps / THREAD_NUM, hipMemcpyDeviceToHost);
 
 	for(int j = 0; j < steps / THREAD_NUM; j++) {
@@ -567,8 +586,18 @@ long long solve_nqueen_cuda(int n, int steps)
 							hipMemcpy(masks_cuda, total_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
 							hipMemcpy(l_masks_cuda, total_l_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
 							hipMemcpy(r_masks_cuda, total_r_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
-
+							
+							hipEvent_t start, stop;
+							hipEventCreate(&start);
+							hipEventCreate(&stop);
+							hipEventRecord(start);
 							hipLaunchKernelGGL(solve_nqueen_cuda_kernel, dim3(steps/THREAD_NUM), dim3(THREAD_NUM), 0, 0, n, n - mark, masks_cuda, l_masks_cuda, r_masks_cuda, results_cuda, total_conditions);
+							hipEventRecord(stop);
+
+							hipEventSynchronize(stop);
+  						float milis = 0.f;
+  						hipEventElapsedTime(&milis, start, stop);
+							total_time+=milis;
 
 							computed = true;
 
@@ -596,9 +625,17 @@ long long solve_nqueen_cuda(int n, int steps)
 		hipMemcpy(masks_cuda, total_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
 		hipMemcpy(l_masks_cuda, total_l_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
 		hipMemcpy(r_masks_cuda, total_r_masks, sizeof(int) * total_conditions, hipMemcpyHostToDevice);
-
+		hipEvent_t start2, stop2;
+		hipEventCreate(&start2);
+		hipEventCreate(&stop2);
+		hipEventRecord(start2);
 		hipLaunchKernelGGL(solve_nqueen_cuda_kernel, dim3(steps/THREAD_NUM), dim3(THREAD_NUM), 0, 0, n, n - mark, masks_cuda, l_masks_cuda, r_masks_cuda, results_cuda, total_conditions);
+		hipEventRecord(stop2);
 
+		hipEventSynchronize(stop2);
+		float milis2 = 0.f;
+		hipEventElapsedTime(&milis2, start2, stop2);
+		total_time+=milis2;
 		hipMemcpy(results, results_cuda, sizeof(int) * steps / THREAD_NUM, hipMemcpyDeviceToHost);
 
 		for(int j = 0; j < steps / THREAD_NUM; j++) {
@@ -617,6 +654,8 @@ long long solve_nqueen_cuda(int n, int steps)
 	delete[] results;
 
 	bunk = 1;
+
+	printf("Time = %f\n", total_time);
 
 	return total;
 }
